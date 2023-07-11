@@ -1,11 +1,10 @@
 import React from "react";
-import Header from "../components/Header";
+import MainContain from "../components/MainContain";
 
 function HomePage() {
   return (
     <div>
-      <Header />
-      HomePage
+      <MainContain />
     </div>
   );
 }

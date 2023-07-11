@@ -24,6 +24,14 @@ body input,
 body textarea {
   cursor: text;
 }
+body .btn {
+  cursor: pointer;
+}
+body .icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 body .icon {
   width: 15px;
   height: 15px;
@@ -32,9 +40,4 @@ body .icon {
 }
 body .icon path {
   cursor: pointer;
-}
-body .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

@@ -31,6 +31,16 @@ body {
     cursor: text;
   }
 
+  .btn {
+    cursor: pointer;
+  }
+
+  .icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .icon {
     width: 15px;
     height: 15px;
@@ -42,10 +52,5 @@ body {
     }
   }
 
-  .btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
 }

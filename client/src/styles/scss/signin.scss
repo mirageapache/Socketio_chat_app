@@ -1,0 +1,33 @@
+.sign-in{
+
+  .sign-in-panel{
+    margin: 50px;
+    font-size: 1.5rem;
+    
+    h2{
+      margin: 10px 0;
+    }
+
+    .form-panel{
+      .user-name{
+        font-size: 1em;
+        line-height: 1em;
+        margin: 15px;
+        border: 1px solid gray;
+        border-radius: 6px;
+        padding: 10px;
+      }
+
+      .submit-btn{
+        font-size: 1em;
+        background-color: var(--primary-color);
+        color: white;
+        margin: 15px 0;
+        border: 0px;
+        border-radius: 6px;
+        padding: 8px;
+      }
+    }
+  }
+
+}
