@@ -17,9 +17,13 @@
     cursor: pointer;
     &:hover{
       border: 1px solid var(--gray-6);
+      path{
+        fill: var(--gray-6);
+      }
     }
 
     *{
+      font-size: 1.2em;
       cursor: pointer;
     }
   }
