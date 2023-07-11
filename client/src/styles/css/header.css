@@ -1,0 +1,24 @@
+#header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: var(--main-color);
+}
+#header .setting-btn {
+  position: absolute;
+  right: 30px;
+  background-color: var(--main-color);
+  border: 1px solid var(--gray-9);
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+}
+#header .setting-btn:hover {
+  border: 1px solid var(--gray-6);
+}
+#header .setting-btn * {
+  cursor: pointer;
+}

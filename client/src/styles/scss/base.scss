@@ -1,0 +1,51 @@
+body {
+  // websit color
+  --main-color: #ffc107;
+  
+  //text color
+  --secondary-text: #757575;
+  //message color
+  --primary-color: #0062ff;
+  --secondary-color: #6c757d;
+  --success-color: #0dd21d;
+  --warning-color: #ffc542;
+  --error-color: #fc5a5a;
+  // gray color
+  --gray-9: #171725;
+  --gray-8: #44444f;
+  --gray-7: #696974;
+  --gray-6: #92929d;
+  --gray-5: #b5b5be;
+  --gray-4: #d5d5dc;
+  --gray-3: #e2e2ea;
+  --gray-2: #f1f1f5;
+  --gray-1: #fafafb;
+
+  * {
+    font-family: "Noto Sans TC", sans-serif;
+    cursor: default;
+  }
+
+  input,
+  textarea {
+    cursor: text;
+  }
+
+  .icon {
+    width: 15px;
+    height: 15px;
+    box-sizing: initial;
+    cursor: pointer;
+
+    path {
+      cursor: pointer;
+    }
+  }
+
+  .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
