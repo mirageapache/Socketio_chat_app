@@ -4,12 +4,15 @@ import HomePage from "./pages/HomePage";
 import Header from "./components/Header";
 import "./styles/css/reset.css";
 import "./styles/css/base.css";
+import { UserProvider } from "contexts/userContext";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <HomePage />
+      <UserProvider>
+        <Header />
+        <HomePage />
+      </UserProvider>
     </div>
   );
 }

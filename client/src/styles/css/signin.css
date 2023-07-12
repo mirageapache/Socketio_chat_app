@@ -1,5 +1,5 @@
 .sign-in .sign-in-panel {
-  margin: 50px;
+  margin: 50px 15px;
   font-size: 1.5rem;
 }
 .sign-in .sign-in-panel h2 {
@@ -12,6 +12,8 @@
   border: 1px solid gray;
   border-radius: 6px;
   padding: 10px;
+  width: 90%;
+  max-width: 300px;
 }
 .sign-in .sign-in-panel .form-panel .submit-btn {
   font-size: 1em;
