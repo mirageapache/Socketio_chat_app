@@ -1,0 +1,82 @@
+.chat-room {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.chat-room .chat-room-panel {
+  display: flex;
+  justify-content: center;
+}
+.chat-room .chat-room-panel .message-panel {
+  position: absolute;
+  overflow-y: auto;
+  width: 100%;
+  height: calc(100% - 50px);
+  padding: 0 2%;
+}
+.chat-room .chat-room-panel .message-panel div {
+  position: relative;
+  display: flex;
+}
+.chat-room .chat-room-panel .message-panel div .hint {
+  position: absolute;
+  font-size: 0.5em;
+  color: var(--secondary-color);
+  margin: 0 3px;
+  margin-bottom: -5px;
+  bottom: 0;
+}
+.chat-room .chat-room-panel .message-panel .message-box-self {
+  justify-content: right;
+}
+.chat-room .chat-room-panel .message-panel .message-box-self p {
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 45vw;
+  margin: 10px 0;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 10px;
+}
+.chat-room .chat-room-panel .message-panel .message-box-other {
+  justify-content: left;
+}
+.chat-room .chat-room-panel .message-panel .message-box-other p {
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 45vw;
+  margin: 10px 0;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid var(--main-color);
+  background-color: var(--main-color);
+}
+.chat-room .chat-room-panel .typing-box {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 2px);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid gray;
+  padding: 5px;
+}
+.chat-room .chat-room-panel .typing-box .typing-input {
+  margin: 0 10px;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  border: 1px solid gray;
+  border-radius: 6px;
+  width: 85%;
+  height: 36px;
+  padding: 5px 10px;
+}
+.chat-room .chat-room-panel .typing-box .send-btn {
+  background-color: var(--main-color);
+  border: 0px;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+}

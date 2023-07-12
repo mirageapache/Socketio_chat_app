@@ -31,6 +31,7 @@ body .icon-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 body .icon {
   width: 15px;

@@ -1,0 +1,99 @@
+@mixin message-box {
+
+  width: fit-content;
+  max-width: 45vw;
+  margin: 10px 0;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.chat-room{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .chat-room-panel{
+    display: flex;
+    justify-content: center;
+    
+    // 聊天訊息區塊
+    .message-panel{
+      position: absolute;
+      overflow-y: auto;
+      width: 100%;
+      height: calc( 100% - 50px );
+      padding: 0 2%;
+      // border: 1px solid gray;
+
+      div {
+        position: relative;
+        display: flex;
+    
+        .hint {
+          position: absolute;
+          font-size: 0.5em;
+          color: var(--secondary-color);
+          margin: 0 3px;
+          margin-bottom: -5px;
+          bottom: 0;
+    
+        } 
+      }
+
+      .message-box-self{
+        justify-content: right;
+
+        p{
+          @include message-box();
+        }
+      }
+
+      .message-box-other{
+        justify-content: left;
+        p{
+          @include message-box();
+          border: 1px solid var(--main-color);
+          background-color: var(--main-color);
+        }
+      }
+
+
+    }
+
+    // 輸入區塊
+    .typing-box{
+      position: absolute;
+      bottom: 0;
+      width: calc( 100% - 2px );
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top:1px solid gray;
+      padding: 5px;
+
+      .typing-input{
+        margin: 0 10px;
+        font-size: 1.2em;
+        line-height: 1.2em;
+        border: 1px solid gray;
+        border-radius: 6px;
+        width: 85%;
+        height: 36px;
+        padding: 5px 10px;
+      }
+
+      .send-btn{
+        background-color: var(--main-color);
+        // border: 1px solid var(--gray-8);
+        border: 0px;
+        border-radius: 6px;
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+
+  }
+}
