@@ -1,3 +1,26 @@
+@mixin icon-btn{
+  background-color: var(--main-color);
+  margin: 0 5px;
+  border: 1px solid var(--main-color);
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid var(--gray-9);
+
+    path {
+      fill: var(--gray-9);
+    }
+  }
+
+  * {
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+}
+
+
 #header{
   position: absolute;
   width: 100%;
@@ -7,25 +30,19 @@
   height: 50px;
   background-color: var(--main-color);
 
-  .setting-btn{
+  .btn-group{
+    // border: 1px solid red;
     position: absolute;
-    right: 30px;
-    background-color: var(--main-color);
-    border: 1px solid var(--gray-9);
-    border-radius: 6px;
-    padding: 8px;
-    cursor: pointer;
-    &:hover{
-      border: 1px solid var(--gray-6);
-      path{
-        fill: var(--gray-6);
-      }
-    }
+    right: 25px;
+    display: flex;
+  }
 
-    *{
-      font-size: 1.2em;
-      cursor: pointer;
-    }
+  .setting-btn{
+    @include icon-btn();
+  }
+
+  .logout-btn{
+    @include icon-btn();
   }
 
 }

@@ -7,22 +7,44 @@
   height: 50px;
   background-color: var(--main-color);
 }
-#header .setting-btn {
+#header .btn-group {
   position: absolute;
-  right: 30px;
+  right: 25px;
+  display: flex;
+}
+#header .setting-btn {
   background-color: var(--main-color);
-  border: 1px solid var(--gray-9);
+  margin: 0 5px;
+  border: 1px solid var(--main-color);
   border-radius: 6px;
   padding: 8px;
   cursor: pointer;
 }
 #header .setting-btn:hover {
-  border: 1px solid var(--gray-6);
+  border: 1px solid var(--gray-9);
 }
 #header .setting-btn:hover path {
-  fill: var(--gray-6);
+  fill: var(--gray-9);
 }
 #header .setting-btn * {
+  font-size: 1.2em;
+  cursor: pointer;
+}
+#header .logout-btn {
+  background-color: var(--main-color);
+  margin: 0 5px;
+  border: 1px solid var(--main-color);
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+}
+#header .logout-btn:hover {
+  border: 1px solid var(--gray-9);
+}
+#header .logout-btn:hover path {
+  fill: var(--gray-9);
+}
+#header .logout-btn * {
   font-size: 1.2em;
   cursor: pointer;
 }
