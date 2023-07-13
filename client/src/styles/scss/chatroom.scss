@@ -28,30 +28,42 @@
 
       div {
         position: relative;
+        width: 100%;
         display: flex;
-    
-        .hint {
+        padding: 12px 0;
+
+        .content{
+          text-align: left;
+        }
+        
+        .time {
           position: absolute;
           font-size: 0.5em;
           color: var(--secondary-color);
           margin: 0 3px;
-          margin-bottom: -5px;
-          bottom: 0;
+          bottom: 6px;
     
         } 
       }
 
       .message-box-self{
         justify-content: right;
-
-        p{
+        width: 100%;
+        // border: 1px solid red;
+        .content{
           @include message-box();
         }
       }
 
       .message-box-other{
         justify-content: left;
-        p{
+        // border: 1px solid blue;
+        .author{
+          // border: 1px solid green;
+          position: absolute;
+          top: 1px;
+        }
+        .content{
           @include message-box();
           border: 1px solid var(--main-color);
           background-color: var(--main-color);

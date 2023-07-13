@@ -4,7 +4,7 @@ import { useUser } from "contexts/userContext";
 import ChatRoom from "./ChatRoom";
 
 function MainContain() {
-  const { joinState, login, logout } = useUser();
+  const { joinState, login } = useUser();
 
   return (
     <div id="main-contain">

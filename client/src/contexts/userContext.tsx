@@ -37,7 +37,6 @@ export const UserProvider = ({ children }: ProviderProps) => {
 
   // 進入聊天室(登入)
   const login = (): void => {
-    console.log(username);
     if (username !== "") {
       socket.emit("login", { username });
       setJoinState(true);
