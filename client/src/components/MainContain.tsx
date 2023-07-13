@@ -1,5 +1,5 @@
 import "../styles/css/mainContain.css";
-import SignIn from "./SignIn";
+import Login from "./Login";
 import io from "socket.io-client";
 import { useUser } from "contexts/userContext";
 import ChatRoom from "./ChatRoom";
@@ -11,7 +11,7 @@ function MainContain() {
   const { username, joinState, setJoinState } = useUser();
 
   // 進入聊天室
-  const signin = (): void => {
+  const login = (): void => {
     if (username !== "") {
       socket.emit("signin", { username });
       setJoinState(true);
@@ -28,7 +28,7 @@ function MainContain() {
 
   return (
     <div id="main-contain">
-      {!joinState ? <SignIn signin={signin} /> : <ChatRoom logout={logout} />}
+      {!joinState ? <Login login={login} /> : <ChatRoom logout={logout} />}
     </div>
   );
 }

@@ -1,8 +1,8 @@
-import "../styles/css/signin.css";
+import "../styles/css/login.css";
 import { useUser } from "../contexts/userContext";
 
-function SignIn(prop: { signin: () => void }) {
-  const { signin } = prop;
+function Login(prop: { login: () => void }) {
+  const { login } = prop;
   const { username, setUsername } = useUser();
 
   return (
@@ -18,7 +18,7 @@ function SignIn(prop: { signin: () => void }) {
             placeholder="Your Nickname"
             onChange={(event) => setUsername(event.target.value)}
           />
-          <button className="btn submit-btn" onClick={signin}>
+          <button className="btn submit-btn" onClick={login}>
             Start Chatting！
           </button>
         </div>
@@ -27,4 +27,4 @@ function SignIn(prop: { signin: () => void }) {
   );
 }
 
-export default SignIn;
+export default Login;
