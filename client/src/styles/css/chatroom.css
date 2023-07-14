@@ -61,6 +61,13 @@
   border: 1px solid var(--main-color);
   background-color: var(--main-color);
 }
+.chat-room .chat-room-panel .message-panel .system-message {
+  text-align: center;
+  color: var(--gray-6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .chat-room .chat-room-panel .typing-box {
   position: absolute;
   bottom: 0;

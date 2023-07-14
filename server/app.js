@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
       // 登入成功 & 發送廣播訊息
       socket.emit('login_success', { id: socket.id, date, time });
       io.sockets.emit('user_joined', {
-        type: 'system', username, date, time,
+        type: 'system', username, date, time, state: 'joined',
       });
     } else {
       // 登入失敗
@@ -65,8 +65,8 @@ io.on('connection', (socket) => {
     const date = `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`;
     const time = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
     // 發送廣播訊息
-    io.sockets.emit('user_joined', {
-      type: 'system', username, date, time,
+    io.sockets.emit('user_leaved', {
+      type: 'system', username, date, time, state: 'leaved',
     });
     console.log(
       `${username}(id=${socketId}) leaving chatroom ${date} ${time}`,
