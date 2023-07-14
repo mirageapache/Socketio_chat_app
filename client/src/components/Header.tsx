@@ -12,7 +12,7 @@ const socket = io(serverUrl);
 
 function Header() {
   const { logout, joinState } = useUser();
-  const { userCount, setUserCount } = useChat();
+  const { userCount, setUserCount, setMessageList } = useChat();
 
   useEffect(() => {
     socket.off("user_count");
@@ -34,7 +34,13 @@ function Header() {
         </button>
 
         {joinState ? (
-          <button className="icon-btn logout-btn" onClick={logout}>
+          <button
+            className="icon-btn logout-btn"
+            onClick={() => {
+              logout();
+              setMessageList([]);
+            }}
+          >
             <IconLougout className="logout-icon" />
           </button>
         ) : (

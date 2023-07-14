@@ -50,7 +50,7 @@ export const UserProvider = ({ children }: ProviderProps) => {
       socket.on("login_success", (data) => {
         setSocketId(socket.id);
         setJoinState(true);
-        setMessageList((list: any) => [{ ...list }, data]);
+        // setMessageList([]);
       });
       // 登入失敗
       socket.on("login_failed", (data) => {
@@ -66,7 +66,6 @@ export const UserProvider = ({ children }: ProviderProps) => {
   // 離開聊天室(登出)
   const logout = (): void => {
     setJoinState(false);
-    setMessageList([]);
     socket.emit("logout", { socketId, username });
   };
 

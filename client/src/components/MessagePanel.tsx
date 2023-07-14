@@ -4,9 +4,11 @@ import { useEffect, useRef } from "react";
 import io from "socket.io-client";
 import MessageBox from "./MessageBox";
 import SystemMessage from "./SystemMessage";
+import { useUser } from "contexts/userContext";
 const socket = io(serverUrl);
 
 function MessagePanel() {
+  const { username } = useUser();
   const { messageList, setMessageList } = useChat();
   const msgPanelRef = useRef<HTMLDivElement>(null);
 
@@ -19,12 +21,16 @@ function MessagePanel() {
     socket.off("user_joined"); // 避免訊息重發
     // 監聽 - 其他使用者加入
     socket.on("user_joined", (data) => {
-      setMessageList((list: any) => [...list, data]);
+      if (data.username !== username) {
+        setMessageList((list: any) => [...list, data]);
+      }
     });
     socket.off("user_leaved"); // 避免訊息重發
     // 監聽 - 其他使用者離開
     socket.on("user_leaved", (data) => {
-      setMessageList((list: any) => [...list, data]);
+      if (data.username !== username) {
+        setMessageList((list: any) => [...list, data]);
+      }
     });
 
     scrollMessageToBottom();
