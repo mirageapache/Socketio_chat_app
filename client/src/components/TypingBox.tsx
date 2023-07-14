@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as IconSendBtn } from "../assets/icons/send.svg";
 import { useChat } from "contexts/chatContext";
 import { useUser } from "contexts/userContext";
@@ -24,7 +23,6 @@ function TypingBox() {
 
       await socket.emit("send_message", messageData);
       setContent("");
-      // setMessageList((list: any) => [...list, messageData]);
     }
   };
 

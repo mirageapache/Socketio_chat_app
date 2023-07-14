@@ -14,6 +14,7 @@ function MessagePanel() {
     socket.on("receive_message", (data) => {
       setMessageList((list: any) => [...list, data]);
     });
+    socket.on("user_joined", (data) => {});
     scrollMessageToBottom();
   });
 
