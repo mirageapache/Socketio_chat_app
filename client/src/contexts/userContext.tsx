@@ -1,7 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import io from "socket.io-client";
 import { serverUrl } from "api";
-import { useChat } from "./chatContext";
 
 // 定義 Context 中 value 的型別
 interface UserContextType {
@@ -40,7 +39,6 @@ export const UserProvider = ({ children }: ProviderProps) => {
   const [socketId, setSocketId] = useState<string>(""); // 使用者id
   const [username, setUsername] = useState<string>(""); // 使用者名稱
   const [joinState, setJoinState] = useState<boolean>(false); //使用者(是否進入聊天室)的狀態
-  const { setMessageList } = useChat();
 
   // 進入聊天室(登入)
   const login = (): void => {
