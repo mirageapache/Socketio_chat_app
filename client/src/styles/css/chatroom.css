@@ -1,9 +1,12 @@
 .chat-room {
   position: relative;
-  height: 100%;
+  border: 1px solid red;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100%;
 }
 .chat-room .chat-room-panel {
+  border: 1px solid blue;
   display: flex;
   justify-content: center;
 }
@@ -11,8 +14,10 @@
   position: absolute;
   overflow-y: auto;
   width: 100%;
-  height: calc(100% - 50px);
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 0 2%;
+  border: 1px solid green;
 }
 .chat-room .chat-room-panel .message-panel div {
   position: relative;
