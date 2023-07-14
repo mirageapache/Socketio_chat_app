@@ -20,20 +20,20 @@
   }
 }
 
-
 #header{
   position: absolute;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--main-color);
+  padding: 0 15px;
 
   .btn-group{
     // border: 1px solid red;
-    position: absolute;
-    right: 25px;
+    // position: absolute;
+    // right: 25px;
     display: flex;
 
     .online-user{

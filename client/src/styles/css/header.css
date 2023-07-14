@@ -1,15 +1,14 @@
 #header {
   position: absolute;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--main-color);
+  padding: 0 15px;
 }
 #header .btn-group {
-  position: absolute;
-  right: 25px;
   display: flex;
 }
 #header .btn-group .online-user {
