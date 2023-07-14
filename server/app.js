@@ -22,6 +22,7 @@ const users = []; // 在線使用者
 // socket 監聽-連線狀態
 io.on('connection', (socket) => {
   const clientIp = socket.request.connection.remoteAddress;
+  socket.emit('user_count', users.length); // 在線人數
 
   // 進入聊天室
   socket.on('login', (username) => {
@@ -41,10 +42,15 @@ io.on('connection', (socket) => {
       socket.emit('login_success', {
         id: socket.id, username, date, time,
       });
+
       // 發送(進入聊天室)廣播訊息
       io.sockets.emit('user_joined', {
         type: 'system', username, date, time, state: 'joined',
       });
+
+      // 更新在線人數
+      io.sockets.emit('user_count', users.length);
+
       // 記錄使用者登入
       console.log(
         `${username}(id= ${socket.id} / ip= ${clientIp})
@@ -74,6 +80,8 @@ io.on('connection', (socket) => {
           `${username}(id=${socketId}) leaving chat ${date} ${time}`,
         );
         users.splice(index, 1);
+        // 更新在線人數
+        io.sockets.emit('user_count', users.length);
       }
     });
   });
@@ -99,6 +107,8 @@ io.on('connection', (socket) => {
           `${user.username}(id=${socket.id}) offline ${date} ${time}`,
         );
         users.splice(index, 1);
+        // 更新在線人數
+        io.sockets.emit('user_count', users.length);
       }
     });
   });

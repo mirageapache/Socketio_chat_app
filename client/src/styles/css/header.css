@@ -12,7 +12,19 @@
   right: 25px;
   display: flex;
 }
-#header .setting-btn {
+#header .btn-group .online-user {
+  border: 1px solid var(--gray-9);
+  border-radius: 6px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+}
+#header .btn-group .online-user p {
+  margin-left: 10px;
+}
+#header .btn-group .setting-btn {
   background-color: var(--main-color);
   margin: 0 5px;
   border: 1px solid var(--main-color);
@@ -20,17 +32,17 @@
   padding: 8px;
   cursor: pointer;
 }
-#header .setting-btn:hover {
+#header .btn-group .setting-btn:hover {
   border: 1px solid var(--gray-9);
 }
-#header .setting-btn:hover path {
+#header .btn-group .setting-btn:hover path {
   fill: var(--gray-9);
 }
-#header .setting-btn * {
+#header .btn-group .setting-btn * {
   font-size: 1.2em;
   cursor: pointer;
 }
-#header .logout-btn {
+#header .btn-group .logout-btn {
   background-color: var(--main-color);
   margin: 0 5px;
   border: 1px solid var(--main-color);
@@ -38,13 +50,13 @@
   padding: 8px;
   cursor: pointer;
 }
-#header .logout-btn:hover {
+#header .btn-group .logout-btn:hover {
   border: 1px solid var(--gray-9);
 }
-#header .logout-btn:hover path {
+#header .btn-group .logout-btn:hover path {
   fill: var(--gray-9);
 }
-#header .logout-btn * {
+#header .btn-group .logout-btn * {
   font-size: 1.2em;
   cursor: pointer;
 }

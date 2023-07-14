@@ -35,14 +35,26 @@
     position: absolute;
     right: 25px;
     display: flex;
-  }
 
-  .setting-btn{
-    @include icon-btn();
-  }
+    .online-user{
+      border:1px solid var(--gray-9);
+      border-radius: 6px;
+      padding: 5px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1em;
+      p{
+        margin-left: 10px;
+      }
+    }
 
-  .logout-btn{
-    @include icon-btn();
+    .setting-btn {
+      @include icon-btn();
+    }
+  
+    .logout-btn {
+      @include icon-btn();
+    }
   }
-
 }
