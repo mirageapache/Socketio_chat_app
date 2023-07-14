@@ -1,5 +1,5 @@
 .chat-room {
-  position: absolute;
+  position: relative;
   height: 100%;
   width: 100%;
 }
@@ -69,7 +69,8 @@
   align-items: center;
 }
 .chat-room .chat-room-panel .typing-box {
-  position: absolute;
+  position: fixed;
+  background-color: white;
   bottom: 0;
   width: calc(100% - 2px);
   height: 50px;
