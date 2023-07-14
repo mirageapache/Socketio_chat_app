@@ -13,7 +13,8 @@ const io = new Server(server, {
   // 設定cors(指定允許的來源及方法)
   cors: {
     // origin: 'http://localhost:3000',
-    origin: 'https://mirageapache.github.io',
+    // origin: 'https://mirageapache.github.io',
+    origin: ['http://localhost:3000', 'https://mirageapache.github.io:443'],
     methods: ['GET', 'POST'],
   },
 });
