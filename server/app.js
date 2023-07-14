@@ -19,16 +19,6 @@ const io = new Server(server, {
 
 const users = []; // 在線使用者
 
-// 刪除users array 中的user 資料
-const deleteUser = (id) => {
-  // 取得離開聊天室user的array index
-  users.forEach((user, index) => {
-    if (user.id === id) {
-      users.splice(index, 1);
-    }
-  });
-};
-
 // socket 監聽-連線狀態
 io.on('connection', (socket) => {
   const clientIp = socket.request.connection.remoteAddress;
@@ -47,16 +37,23 @@ io.on('connection', (socket) => {
         fullDateTime: dt, // 時間
       });
 
-      // 登入成功 & 發送廣播訊息
-      socket.emit('login_success', { id: socket.id, date, time });
+      // 登入成功
+      socket.emit('login_success', {
+        id: socket.id, username, date, time,
+      });
+      // 發送(進入聊天室)廣播訊息
       io.sockets.emit('user_joined', {
         type: 'system', username, date, time, state: 'joined',
       });
+      // 記錄使用者登入
+      console.log(
+        `${username}(id= ${socket.id} / ip= ${clientIp})
+         joined chat ${date} ${time}`,
+      );
     } else {
       // 登入失敗
       socket.emit('login_failed', { err_msg: 'duplicate name' });
     }
-    console.log(users);
   });
 
   // 離開聊天室
@@ -64,15 +61,21 @@ io.on('connection', (socket) => {
     const dt = new Date(Date.now());
     const date = `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`;
     const time = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
-    // 發送廣播訊息
+    // 發送(離開聊天室)廣播訊息
     io.sockets.emit('user_leaved', {
       type: 'system', username, date, time, state: 'leaved',
     });
-    console.log(
-      `${username}(id=${socketId}) leaving chatroom ${date} ${time}`,
-    );
-    deleteUser(socketId); // 刪除user 資料
-    console.log(users);
+
+    // 刪除user 資料
+    users.forEach((user, index) => {
+      if (user.id === socketId) {
+        // 記錄使用者離開
+        console.log(
+          `${username}(id=${socketId}) leaving chat ${date} ${time}`,
+        );
+        users.splice(index, 1);
+      }
+    });
   });
 
   // 傳送訊息
@@ -83,7 +86,21 @@ io.on('connection', (socket) => {
 
   // 離線
   socket.on('disconnect', () => {
-    deleteUser(socket.id); // 刪除user 資料
+    users.forEach((user, index) => {
+      if (user.id === socket.id) {
+        const dt = new Date(Date.now());
+        const date = `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`;
+        const time = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
+        // 發送(離開聊天室)廣播訊息
+        io.sockets.emit('user_leaved', {
+          type: 'system', username: user.username, date, time, state: 'leaved',
+        });
+        console.log(
+          `${user.username}(id=${socket.id}) offline ${date} ${time}`,
+        );
+        users.splice(index, 1);
+      }
+    });
   });
 });
 

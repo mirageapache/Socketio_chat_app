@@ -1,11 +1,16 @@
 import { useUser } from "contexts/userContext";
-interface MessageBox {
+
+interface MessageType {
+  type: string;
   author: string;
+  username: string;
   message: string;
+  date: string;
   time: string;
+  state: string;
 }
 
-function MessageBox(prop: { data: MessageBox }) {
+function MessageBox(prop: { data: MessageType }) {
   const { author, message, time } = prop.data;
   const { username } = useUser();
 

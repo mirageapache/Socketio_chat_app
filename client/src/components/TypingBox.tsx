@@ -8,11 +8,12 @@ const socket = io(serverUrl);
 
 function TypingBox() {
   const { content, setContent } = useChat();
-  const { username } = useUser();
+  const { socketId, username } = useUser();
 
   const sendMessage = async (key: string) => {
     if (content !== "" && key === "Enter") {
       const messageData = {
+        id: socketId,
         author: username,
         message: content,
         time:

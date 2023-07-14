@@ -50,6 +50,7 @@ export const UserProvider = ({ children }: ProviderProps) => {
       socket.on("login_success", (data) => {
         setSocketId(socket.id);
         setJoinState(true);
+        setMessageList((list: any) => [{ ...list }, data]);
       });
       // 登入失敗
       socket.on("login_failed", (data) => {
