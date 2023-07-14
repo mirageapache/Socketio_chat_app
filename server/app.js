@@ -14,7 +14,7 @@ const io = new Server(server, {
   cors: {
     // origin: 'http://localhost:3000',
     // origin: 'https://mirageapache.github.io',
-    origin: ['http://localhost:3000', 'https://mirageapache.github.io:443'],
+    origin: ['http://localhost:3000', 'https://mirageapache.github.io'],
     methods: ['GET', 'POST'],
   },
 });
