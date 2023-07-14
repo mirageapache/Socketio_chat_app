@@ -29,9 +29,9 @@ function Header() {
           <IconUser className="user-icon" />
           <p>{userCount}</p>
         </span>
-        <button className="icon-btn setting-btn">
+        {/* <button className="icon-btn setting-btn">
           <IconSetting className="setting-icon" />
-        </button>
+        </button> */}
 
         {joinState ? (
           <button
