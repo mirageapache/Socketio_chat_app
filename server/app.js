@@ -111,6 +111,8 @@ io.on('connection', (socket) => {
         users.splice(index, 1);
         // 更新在線人數
         io.sockets.emit('user_count', users.length);
+        // 登入成功
+        socket.emit('break_off', 'break_off');
       }
     });
   });

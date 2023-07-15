@@ -8,7 +8,7 @@ import { useUser } from "contexts/userContext";
 const socket = io(serverUrl);
 
 function MessagePanel() {
-  const { username } = useUser();
+  const { username, setJoinState } = useUser();
   const { messageList, setMessageList } = useChat();
   const msgPanelRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +30,14 @@ function MessagePanel() {
     socket.on("user_leaved", (data) => {
       if (data.username !== username) {
         setMessageList((list: any) => [...list, data]);
+      }
+    });
+
+    // 監聽 - 斷線
+    socket.on("break_off", (data) => {
+      if (data === "break_off") {
+        setJoinState(false);
+        setMessageList([]);
       }
     });
 
