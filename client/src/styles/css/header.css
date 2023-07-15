@@ -1,6 +1,5 @@
 #header {
-  position: sticky;
-  position: -webkit-sticky;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
@@ -62,10 +61,4 @@
 #header .btn-group .logout-btn * {
   font-size: 1.2em;
   cursor: pointer;
-}
-
-@media screen and (min-width: 768px) {
-  #header {
-    position: fixed;
-  }
 }
