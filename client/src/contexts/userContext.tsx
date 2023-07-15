@@ -44,8 +44,10 @@ export const UserProvider = ({ children }: ProviderProps) => {
   const login = (): void => {
     if (username !== "") {
       socket.emit("login", username);
+      console.log("logining - wait for server ... ");
       // 登入成功
       socket.on("login_success", (data) => {
+        console.log("login successed!");
         setSocketId(socket.id);
         setJoinState(true);
         // setMessageList([]);
