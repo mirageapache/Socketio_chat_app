@@ -36,7 +36,7 @@ function MessagePanel() {
     // 監聽 - 斷線
     socket.on("break_off", (data) => {
       if (data === "break_off") {
-        setJoinState(false);
+        setJoinState("detach");
         setMessageList([]);
       }
     });
