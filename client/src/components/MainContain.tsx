@@ -16,12 +16,7 @@ function MainContain() {
     view = <Login login={login} />;
   }
 
-  return (
-    <div id="main-contain">
-      {view}
-      {/* {!joinState ? <Login login={login} /> : <ChatRoom />} */}
-    </div>
-  );
+  return <div id="main-contain">{view}</div>;
 }
 
 export default MainContain;
