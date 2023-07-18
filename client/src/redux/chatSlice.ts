@@ -41,7 +41,7 @@ const chatSlice = createSlice({
       state.messageList.push(action.payload);
     },
     // 重新設定 messageList
-    resetMessageList(state, ){
+    resetMessageList(state){
       state.messageList = [];
     },
   }
