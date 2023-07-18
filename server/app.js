@@ -66,6 +66,7 @@ io.on('connection', (socket) => {
 
   // 離開聊天室
   socket.on('logout', ({ socketId, username }) => {
+    console.log(`${socketId} / ${username}`);
     const dt = new Date(Date.now());
     const date = `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`;
     const time = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;

@@ -1,9 +1,48 @@
+import { serverUrl } from "api";
 import "../styles/css/login.css";
-import { useUser } from "../contexts/userContext";
+import { useSelector, useDispatch } from "react-redux";
+import { setSocketId, setUsername, setJoinState } from "redux/userSlice";
+import io from "socket.io-client";
+const socket = io(serverUrl);
 
-function Login(prop: { login: () => void }) {
-  const { login } = prop;
-  const { username, setUsername } = useUser();
+// 設定user型別
+interface UserState {
+  socketId: string;
+  username: string;
+  joinState: string;
+}
+// 設定reudcer型別
+interface RootState {
+  user: UserState;
+}
+
+function Login() {
+  const userState = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
+
+  // 登入
+  function Login() {
+    if (userState.username !== "") {
+      socket.emit("login", userState.username);
+      console.log("logining - wait for server ... ");
+      dispatch(setJoinState("loading"));
+      // 登入成功
+      socket.on("login_success", (data) => {
+        console.log("login successed!");
+        dispatch(setSocketId(data.id));
+        dispatch(setJoinState("joined"));
+      });
+      // 登入失敗
+      socket.on("login_failed", (data) => {
+        dispatch(setJoinState("detach"));
+        alert(
+          "Oops！This nickname is used by others, please use another nickname！"
+        );
+      });
+    } else {
+      alert("please typing your nickname!!");
+    }
+  }
 
   return (
     <div className="sign-in">
@@ -14,11 +53,11 @@ function Login(prop: { login: () => void }) {
           <input
             className="user-name"
             type="text"
-            value={username}
+            value={userState.username}
             placeholder="Your Nickname"
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={(event) => dispatch(setUsername(event.target.value))}
           />
-          <button className="btn submit-btn" onClick={login}>
+          <button className="btn submit-btn" onClick={Login}>
             Start Chatting！
           </button>
         </div>

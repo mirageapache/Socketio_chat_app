@@ -1,25 +1,45 @@
 import { useEffect } from "react";
 import "../styles/css/header.css";
-import { ReactComponent as IconSetting } from "../assets/icons/setting.svg";
+// import { ReactComponent as IconSetting } from "../assets/icons/setting.svg";
 import { ReactComponent as IconLougout } from "../assets/icons/logout.svg";
 import { ReactComponent as IconUser } from "../assets/icons/user.svg";
-import { useUser } from "contexts/userContext";
 import { useChat } from "contexts/chatContext";
-import io from "socket.io-client";
 import { serverUrl } from "api";
+import io from "socket.io-client";
+import { useSelector, useDispatch } from "react-redux";
+import { resetState } from "redux/userSlice";
 
 const socket = io(serverUrl);
+// 設定user型別
+interface UserState {
+  socketId: string;
+  username: string;
+  joinState: string;
+}
+// 設定reudcer型別
+interface RootState {
+  user: UserState;
+}
 
 function Header() {
-  const { logout, joinState } = useUser();
+  const userState = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
   const { userCount, setUserCount, setMessageList } = useChat();
 
   useEffect(() => {
     socket.off("user_count");
+    // 顯示在線人數
     socket.on("user_count", (count) => {
       setUserCount(count);
     });
   });
+
+  // 登出
+  function Logout() {
+    console.log(userState);
+    socket.emit("logout", userState);
+    dispatch(resetState());
+  }
 
   return (
     <div id="header">
@@ -33,11 +53,11 @@ function Header() {
           <IconSetting className="setting-icon" />
         </button> */}
 
-        {joinState ? (
+        {userState.joinState === "joined" ? (
           <button
             className="icon-btn logout-btn"
             onClick={() => {
-              logout();
+              Logout();
               setMessageList([]);
             }}
           >

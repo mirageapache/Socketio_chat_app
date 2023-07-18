@@ -1,19 +1,29 @@
 import "../styles/css/mainContain.css";
 import Login from "./Login";
-import { useUser } from "contexts/userContext";
 import ChatRoom from "./ChatRoom";
 import Loading from "./Loading";
+import { useSelector } from "react-redux";
+
+interface UserState {
+  socketId: string;
+  username: string;
+  joinState: string;
+}
+
+interface RootState {
+  user: UserState;
+}
 
 function MainContain() {
-  const { joinState, login } = useUser();
   let view: JSX.Element | null = null;
+  const userState = useSelector((state: RootState) => state.user);
 
-  if (joinState === "joined") {
+  if (userState.joinState === "joined") {
     view = <ChatRoom />;
-  } else if (joinState === "loading") {
+  } else if (userState.joinState === "loading") {
     view = <Loading />;
   } else {
-    view = <Login login={login} />;
+    view = <Login />;
   }
 
   return <div id="main-contain">{view}</div>;

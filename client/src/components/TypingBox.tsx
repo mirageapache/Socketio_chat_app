@@ -1,20 +1,30 @@
 import { ReactComponent as IconSendBtn } from "../assets/icons/send.svg";
 import { useChat } from "contexts/chatContext";
-import { useUser } from "contexts/userContext";
 import io from "socket.io-client";
 import { serverUrl } from "api";
+import { useSelector } from "react-redux";
 
 const socket = io(serverUrl);
 
+interface UserState {
+  socketId: string;
+  username: string;
+  joinState: string;
+}
+
+interface RootState {
+  user: UserState;
+}
+
 function TypingBox() {
   const { content, setContent } = useChat();
-  const { socketId, username } = useUser();
+  const userState = useSelector((state: RootState) => state.user);
 
-  const sendMessage = async (key: string) => {
+  const sendMessage = (key: string) => {
     if (content !== "" && key === "Enter") {
       const messageData = {
-        id: socketId,
-        author: username,
+        id: userState.socketId,
+        author: userState.username,
         message: content,
         time:
           new Date(Date.now()).getHours() +
@@ -22,7 +32,7 @@ function TypingBox() {
           new Date(Date.now()).getMinutes(),
       };
 
-      await socket.emit("send_message", messageData);
+      socket.emit("send_message", messageData);
       setContent("");
     }
   };
