@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Socketio_chat_app/static/css/main.f4a8a0c1.css",
-    "main.js": "/Socketio_chat_app/static/js/main.d342d2ae.js",
+    "main.js": "/Socketio_chat_app/static/js/main.d56e44a5.js",
     "static/js/787.c4e7f8f9.chunk.js": "/Socketio_chat_app/static/js/787.c4e7f8f9.chunk.js",
     "index.html": "/Socketio_chat_app/index.html",
     "static/media/logout.svg": "/Socketio_chat_app/static/media/logout.0f6ce22715527a79cf1b8bdae5b0d62f.svg",
@@ -9,11 +9,11 @@
     "static/media/loading.svg": "/Socketio_chat_app/static/media/loading.1ddf0276f01ff3f5353a8bf4a8f66c8b.svg",
     "static/media/user.svg": "/Socketio_chat_app/static/media/user.f30f99725979470d9c28f8b3483058b6.svg",
     "main.f4a8a0c1.css.map": "/Socketio_chat_app/static/css/main.f4a8a0c1.css.map",
-    "main.d342d2ae.js.map": "/Socketio_chat_app/static/js/main.d342d2ae.js.map",
+    "main.d56e44a5.js.map": "/Socketio_chat_app/static/js/main.d56e44a5.js.map",
     "787.c4e7f8f9.chunk.js.map": "/Socketio_chat_app/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4a8a0c1.css",
-    "static/js/main.d342d2ae.js"
+    "static/js/main.d56e44a5.js"
   ]
 }
