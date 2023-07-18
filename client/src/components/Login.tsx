@@ -24,11 +24,11 @@ function Login() {
   function Login() {
     if (userState.username !== "") {
       socket.emit("login", userState.username);
-      console.log("logining - wait for server ... ");
+      // console.log("logining - wait for server ... ");
       dispatch(setJoinState("loading"));
       // 登入成功
       socket.on("login_success", (data) => {
-        console.log("login successed!");
+        // console.log("login successed!");
         dispatch(setSocketId(data.id));
         dispatch(setJoinState("joined"));
       });

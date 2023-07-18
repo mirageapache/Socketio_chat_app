@@ -44,7 +44,6 @@ function Header() {
 
   // 登出
   function Logout() {
-    console.log(userState);
     socket.emit("logout", userState);
     dispatch(resetState());
   }
