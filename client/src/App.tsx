@@ -10,11 +10,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"; //import套件
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import userSlice from "redux/userSlice";
+import chatSlice from "redux/chatSlice";
 
 // 宣告reudx sotre
 const store = configureStore({
   reducer: {
     user: userSlice,
+    chat: chatSlice,
   },
 });
 

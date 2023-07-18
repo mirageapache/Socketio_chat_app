@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/css/chatroom.css";
 import MessagePanel from "./MessagePanel";
 import TypingBox from "./TypingBox";

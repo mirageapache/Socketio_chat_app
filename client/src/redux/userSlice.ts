@@ -1,15 +1,14 @@
-import { createSlice,PayloadAction  } from "@reduxjs/toolkit";
-import { serverUrl } from "api";
-import io from "socket.io-client";
-const socket = io(serverUrl);
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // import { produce } from "immer";
 
+// 定義型別
 interface UserState {
   socketId: string;
   username: string;
   joinState: string;
 }
 
+// 設定預設值
 const initialState: UserState ={
   socketId: "",
   username: "",
@@ -21,37 +20,25 @@ const userSlice = createSlice({
   initialState: initialState,
   reducers: {
     // 設定 socket id
-    setSocketId(state, action){
+    setSocketId(state, action: PayloadAction<string>){
       state.socketId = action.payload;
     },
     // 設定 username
-    setUsername(state, action){
+    setUsername(state, action: PayloadAction<string>){
       state.username = action.payload;
     },
     // 設定 joinState
     setJoinState(state, action: PayloadAction<string>){
       state.joinState = action.payload;
     },
-    // 登入function
-    setLogin(state){
-      if (state.username !== "") {
-        socket.emit("login", state.username);
-        console.log("logining - wait for server ... ");
-        state.joinState = "loading";
-      } else {
-        alert("please typing your nickname!!");
-      }
-    },
-    // 登出function
+    // 重設 userState
     resetState(state){
-      
       state.socketId ="";
       state.username ="";
       state.joinState ="detach";
     }
   }
 })
-
 
 export const {setSocketId, setUsername, setJoinState, resetState} = userSlice.actions;
 export default userSlice.reducer;
